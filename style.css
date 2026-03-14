@@ -1,0 +1,153 @@
+/* 1. CONFIGURACIÓN DE LUJO */
+:root {
+    --negro-puro: #ffffff;
+    --negro-suave: #fffbfb;
+    --gris-oscuro: #fffdfd;
+    --gris-plata: #fff4f4;
+    --blanco: #ffffff;
+    --fuente-titulo: 'Cinzel', serif; /* Estilo Gótico Romano */
+    --fuente-texto: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--gris-plata);
+    color: var(--blanco);
+    font-family: var(--fuente-texto);
+    overflow-x: hidden;
+}
+
+/* 2. HEADER PROFESIONAL */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('https://images.squarespace-cdn.com/content/v1/63ec4904f45d9c0e8d21553d/471c08ef-0564-4f67-b418-587d9107e161/%ED%81%AC%EB%A1%AC%ED%95%98%EC%B8%A0+%EB%A1%9C%EA%B3%A0+%EC%9B%B9.png'); 
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--gris-oscuro);
+}
+
+h1 {
+    font-family: var(--fuente-titulo);
+    font-size: 5rem;
+    letter-spacing: 15px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    margin-bottom: 20px;
+}
+
+/* 3. BUSCADOR ESTILIZADO */
+.search-container {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 252, 252, 0.9);
+    padding: 20px;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gris-oscuro);
+}
+
+#buscador {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gris-plata);
+    color: var(--blanco);
+    font-size: 1rem;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+    letter-spacing: 2px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#buscador:focus {
+    width: 500px;
+    border-bottom: 1px solid var(--blanco);
+}
+
+/* 4. TIENDA Y PRODUCTOS */
+.tienda {
+    max-width: 900px;
+    margin: 80px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.producto {
+    position: relative;
+    background: var(--negro-suave);
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+}
+
+.producto img {
+    width: 20%;
+    height: 100px;
+    object-fit: center;
+    filter: grayscale(100%) brightness(0.8);
+    transition: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.producto:hover img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05);
+    height: 20px;
+}
+
+/* 5. TEXTO Y BOTONES */
+.producto h3 {
+    font-family: var(--fuente-titulo);
+    font-size: 1rem;
+    margin-top: 25px;
+    letter-spacing: 2px;
+}
+
+.precio {
+    font-size: 0.9rem;
+    color: var(--gris-plata);
+    margin: 10px 0 20px;
+}
+
+button {
+    background: var(--blanco);
+    color: var(--negro-puro);
+    border: 1px solid var(--blanco);
+    padding: 15px;
+    width: 100%;
+    font-family: var(--fuente-titulo);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background: transparent;
+    color: var(--blanco);
+}
+
+/* 6. RESPONSIVE (MÓVIL) */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; letter-spacing: 5px; }
+    #buscador { width: 80%; }
+    .producto img { height: 350px; }
+}

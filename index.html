@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <title>CHROME HEARTS | </title>
+    
+    <link href="style.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+    <meta charset="UTF-8">
+    <title>CHROME HEARTS | Mi Tienda</title>
+    <style>
+        /* DISEÑO ESTILO CHROME HEARTS */
+        body {
+            background-color: #000000; /* Negro profundo */
+            color: rgb(255, 250, 250);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 10px;
+            margin: 0;
+        }
+
+        /* Buscador */
+        .search-container {
+            margin: 20px 0;
+        }
+
+        #buscador {
+            background: #000000;
+            border: 1px solid #000000;
+            color: rgb(5, 5, 5);
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Cuadrícula de productos */
+        .tienda {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .producto {
+            background: #000;
+            border: 1px solid #111;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .producto:hover {
+            border-color: #555;
+        }
+
+        .producto img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover; /* Para que la foto no se deforme */
+            filter: grayscale(100%); /* Efecto blanco y negro */
+            transition: 0.5s;
+        }
+
+        .producto:hover img {
+            filter: grayscale(0%); /* Cobra color al pasar el mouse */
+        }
+
+        .precio {
+            color: #888;
+            margin: 15px 0;
+        }
+
+        button {
+            background: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CRHOME HEARTS</h1>
+    <div class="search-container">
+        <input type="text" id="buscador" placeholder="BUSCAR EN LA COLECCIÓN..." onkeyup="buscar()">
+    </div>
+</header>
+
+<div class="tienda" id="contenedor">
+    <div class="producto" data-nombre="camiseta cross black">
+        <img src="img/camisa1.avif" alt="Camiseta"> <h3>Camiseta Chrome Hearts con cruces multicolores en negro</h3>
+        <p class="precio">$900 USD</p>
+        <button onclick="comprar()">AÑADIR AL CARRITO</button>
+    </div>
+
+    <div class="producto" data-nombre="hoodie">
+        <img src="img/HOODIE.jpg" alt="Hoodie"> <h3>Hoodie Chrome Hearts Horseshoe Floral Cross Sleeve con cremallera completa en negro/blanco</h3>
+        <p class="precio">$1,200 USD</p>
+        <button onclick="comprar()">AÑADIR AL CARRITO</button>
+    </div>
+
+    <div class="producto" data-nombre="gorra silver dagger">
+        <img src="img/gorra.avif" alt="Gorra"> <h3>Gorra trucker Chrome Hearts CH Hollywood en negro/blanc</h3>
+        <p class="precio">$500 USD</p>
+        <button onclick="comprar()">AÑADIR AL CARRITO</button> 
+        </div>
+
+        <div class="producto" data-nombre="gorra silver dagger">
+        <img src="img/PANTALON.avif" alt="Pantalon"> <h3>Chrome Hearts Rosa & Checkered Cross Patch Fleurknee Jeans Negro</h3>
+        <p class="precio">$250 USD</p>
+        <button onclick="comprar()">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="producto" data-nombre="hoodie">
+        <img src="img/manca larga.jpg" alt="manga"> <h3>beisbol tshirt</h3>
+        <p class="precio">$1,200 USD</p>
+        <button onclick="comprar()">AÑADIR AL CARRITO</button>
+    </div>
+
+     <div class="producto" data-nombre="hoodie">
+        <img src="img/gorra azul.avif" alt="manga"> <h3>beisbol cap</h3>
+        <p class="precio">$1,200 USD</p>
+        <button onclick="comprar()">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="producto" data-nombre="hoodie">
+        <img src="img/lentes.jpg" alt="glasses"> <h3>glasses</h3>
+        <p class="precio">$1,200 USD</p>
+        <button onclick="comprar()">AÑADIR AL CARRITO</button>
+        </div>
+
+
+
+
+
+
+
+</div>
+
+<script>
+    // Función para buscar productos
+    function buscar() {
+        let input = document.getElementById('buscador').value.toLowerCase();
+        let productos = document.getElementsByClassName('producto');
+
+        for (let i = 0; i < productos.length; i++) {
+            let nombre = productos[i].getAttribute('data-nombre');
+            if (nombre.includes(input)) {
+                productos[i].style.display = "block";
+            } else {
+                productos[i].style.display = "none";
+            }
+        }
+    }
+
+    function comprar() {
+        alert("¡Añadido a tu colección privada!");
+    }
+</script>
+
+</body>
+</html>
